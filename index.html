@@ -782,6 +782,34 @@
     html.xmas .bar.skill[style*="#ffa1d3" i]  { background: url(bar-35-399.png) center / 100% 100% no-repeat !important; }
     html.xmas .bar.skill[style*="#15803d" i]  { background: url(bar-30-349.png) center / 100% 100% no-repeat !important; }
     html.xmas .bar.skill[style*="#0ea5e9" i]  { background: url(bar-20-299.png) center / 100% 100% no-repeat !important; }
+
+    /* ── CHRISTMAS: popup artwork (blank gift picture per level) with live logo and rating in its slots ── */
+    html.xmas #infoOverlay .overlayBox {
+      position: relative !important;
+      width: min(845px, 92vw) !important;
+      aspect-ratio: 845 / 384 !important;
+      min-width: 0 !important; padding: 0 !important; border: 0 !important;
+      border-radius: 0 !important; box-shadow: none !important;
+      background-size: 100% 100% !important; background-repeat: no-repeat !important;
+    }
+    html.xmas #overlayBox::before, html.xmas #overlayBox::after { content: none !important; display: none !important; }
+    html.xmas #overlayBox .gift-bow, html.xmas #overlayBox #overlayBody { display: none !important; }
+    html.xmas #overlayBox .overlayLogo {
+      position: absolute; left: 34.2%; top: 41.4%; width: 31.6%; height: 21.35%;
+      margin: 0 !important; max-width: none !important; box-sizing: border-box;
+      object-fit: contain; padding: 4% 6%; border-radius: 10px; background: #17120e;
+    }
+    html.xmas #overlayBox #overlayLevel {
+      position: absolute !important; left: 30.65%; top: 65.9%; width: 38.7%; height: 15.6%;
+      margin: 0 !important; display: flex !important; align-items: center; justify-content: center;
+      font-family: 'Impact', 'Arial Black', sans-serif; font-size: 3.6vw; color: #fff !important;
+      background: transparent !important; box-shadow: none !important; padding: 0 !important; line-height: 1;
+    }
+    html.xmas #overlayBox[data-bg="#0ea5e9"] { background: url(gift-20-299.svg) center / 100% 100% no-repeat !important; }
+    html.xmas #overlayBox[data-bg="#15803d"] { background: url(gift-30-349.svg) center / 100% 100% no-repeat !important; }
+    html.xmas #overlayBox[data-bg="#ffa1d3"] { background: url(gift-35-399.svg) center / 100% 100% no-repeat !important; }
+    html.xmas #overlayBox[data-bg="#f47855"] { background: url(gift-40-449.svg) center / 100% 100% no-repeat !important; }
+    html.xmas #overlayBox[data-bg="#cfd829"] { background: url(gift-45plus.svg) center / 100% 100% no-repeat !important; }
 </style>
 <script>
 // Christmas theme switch: on until 1 Jan 2027 00:00 ET, then the normal look returns automatically.
@@ -1564,6 +1592,7 @@
       overlayLvlEl.textContent=currentLevelLabel;
       // Make the whole overlay box the skill color
       overlayBoxEl.style.background = currentLevelBg || "#0c0c0c";
+      overlayBoxEl.setAttribute("data-bg", (currentLevelBg || "#0c0c0c").toLowerCase());
       // Detect if light skill color — use dark text; otherwise keep white
       var useDark = isLightColor(currentLevelBg || "#0c0c0c");
       var textColor = useDark ? "#000" : "#fff";
