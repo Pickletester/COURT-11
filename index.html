@@ -678,7 +678,8 @@
       color: #ffffff;
       text-shadow: 0 3px 0 #7a0c18, 0 6px 8px rgba(0,0,0,.45);
     }
-    html.xmas .bar .sec { position: relative; }
+    html.xmas .bar .sec { position: relative; overflow: visible; border-left: none !important; }
+    html.xmas .bar #cur, html.xmas .bar #cd, html.xmas .bar #nxt, html.xmas .bar #now { border-left: none !important; }
     html.xmas .bar #cur::before, html.xmas .bar #cd::before, html.xmas .bar #nxt::before, html.xmas .bar #now::before {
       content: "";
       position: absolute;
@@ -701,9 +702,9 @@
       content: "";
       position: absolute; inset: 0;
       pointer-events: none;
-      z-index: 0;
       background: url(xmas-flakes.png) 0 0 / 100% 100% no-repeat;
-      opacity: .85;
+      opacity: .9;
+      z-index: 2;
     }
 
     /* ── CHRISTMAS: gift-box info popup (colour comes from the skill level via the box background) ── */
