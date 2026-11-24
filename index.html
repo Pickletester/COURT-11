@@ -771,6 +771,17 @@
     html.xmas .bar:not(.skill):not(.expiring) {
       border-bottom: 2px solid #f6c850;
     }
+
+    /* ── CHRISTMAS: skill bars use the approved picture as their background (text is live on top) ── */
+    html.xmas .bar.skill { background: none !important; background-size: 100% 100% !important; }
+    html.xmas .bar.skill #cn { background: none !important; box-shadow: none !important; }
+    html.xmas .bar.skill .sec::before, html.xmas .bar.skill .sec::after { content: none !important; display: none !important; }
+    html.xmas .bar.skill::before { content: none !important; display: none !important; }
+    html.xmas .bar.skill[style*="#cfd829" i]  { background: url(bar-45plus.png) center / 100% 100% no-repeat !important; }
+    html.xmas .bar.skill[style*="#f47855" i]  { background: url(bar-40-449.png) center / 100% 100% no-repeat !important; }
+    html.xmas .bar.skill[style*="#ffa1d3" i]  { background: url(bar-35-399.png) center / 100% 100% no-repeat !important; }
+    html.xmas .bar.skill[style*="#15803d" i]  { background: url(bar-30-349.png) center / 100% 100% no-repeat !important; }
+    html.xmas .bar.skill[style*="#0ea5e9" i]  { background: url(bar-20-299.png) center / 100% 100% no-repeat !important; }
 </style>
 <script>
 // Christmas theme switch: on until 1 Jan 2027 00:00 ET, then the normal look returns automatically.
