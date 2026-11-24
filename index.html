@@ -679,7 +679,7 @@
       text-shadow: 0 3px 0 #7a0c18, 0 6px 8px rgba(0,0,0,.45);
     }
     html.xmas .bar .sec { position: relative; }
-    html.xmas .bar .sec + .sec::before {
+    html.xmas .bar #cur::before, html.xmas .bar #cd::before, html.xmas .bar #nxt::before, html.xmas .bar #now::before {
       content: "";
       position: absolute;
       left: -15px; top: 0; bottom: 0;
@@ -688,14 +688,22 @@
       pointer-events: none;
       z-index: 3;
     }
-    html.xmas .bar::after {
+    html.xmas .bar .sec:not(#cn)::after {
       content: "";
       position: absolute;
       left: 0; right: 0; bottom: 0;
-      height: 8px;
+      height: 12px;
       pointer-events: none;
       z-index: 1;
       background: url(xmas-drift.png) center bottom / 100% 100% no-repeat;
+    }
+    html.xmas .bar.skill::before {
+      content: "";
+      position: absolute; inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background: url(xmas-flakes.png) 0 0 / 100% 100% no-repeat;
+      opacity: .85;
     }
 
     /* ── CHRISTMAS: gift-box info popup (colour comes from the skill level via the box background) ── */
